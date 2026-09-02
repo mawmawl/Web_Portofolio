@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maulana Malik Ibrahim — Portfolio & Software Engineer</title>
+  <meta name="description"
+    content="Portfolio resmi Maulana Malik Ibrahim — Software Engineer, Full-Stack Developer, dan Creative Technologist. Berbasis komponen Framer.com.">
+
+  <!-- Google Fonts: Poppins (Headings: SemiBold/Bold, Body: Regular/Medium) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="framer-body">
+
+  <!-- Background Overlay & Noise Texture -->
+  <div class="spotlight-overlay" id="spotlightOverlay"></div>
+  <div class="framer-noise-bg"></div>
+
+  <!-- Framer Component: Nav bar (TNQ39JLT9) — Dynamic Island Pill -->
+  <header class="framer-navbar-wrapper">
+    <nav class="framer-navbar" id="framerNavbar">
+
+      <!-- Full Expanded Navbar Content -->
+      <div class="nav-expanded-content" id="navExpandedContent">
+        <a href="#hero" class="framer-logo">
+          <span class="logo-name">Maulana Malik Ibrahim</span>
+        </a>
+
+        <div class="framer-nav-menu" id="navMenu">
+          <a href="#hero" class="framer-menu-link active" data-section="hero">Home</a>
+          <a href="#about" class="framer-menu-link" data-section="about">About</a>
+          <a href="#services" class="framer-menu-link" data-section="services">Services</a>
+          <a href="#experience" class="framer-menu-link" data-section="experience">Experience</a>
+          <a href="#contact" class="framer-menu-link" data-section="contact">Contact</a>
+        </div>
+
+
+      </div>
+
+      <!-- Minimized Scroll Pill Content (Matching User Screenshot) -->
+      <div class="nav-minimized-content" id="navMinimizedContent">
+        <a href="#hero" class="minimized-logo">
+          <span class="minimized-name">Maulana Malik Ibrahim</span>
+        </a>
+
+        <!-- Animated 3-Dots Badge Indicator -->
+        <div class="dots-indicator" id="dotsIndicator" title="Hover to Expand Menu">
+          <span class="dot dot-1"></span>
+          <span class="dot dot-2"></span>
+          <span class="dot dot-3"></span>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+
+  <main>
+    <!-- Apple Vision 3D Device Stage Hero Section -->
+    <section class="apple-hero-section" id="hero">
+      <div class="apple-hero-pinned">
+
+        <!-- Stage 1: Clean Left-Aligned Cinematic Hero Stage -->
+        <div class="apple-editorial-view aesthetic-aquarium-view left-aligned-view" id="appleEditorialView">
+
+          <!-- Full Screen Clean Ambient Aquarium Visual -->
+          <div class="aquarium-bg-wrapper">
+            <img src="Asset/Aquarium.png" alt="Atmospheric Aquarium Visual" class="aquarium-bg-img">
+            <div class="aquarium-vignette-overlay"></div>
+            <div class="aquarium-ambient-aurora"></div>
+          </div>
+
+
+          <!-- Left-Aligned Pure Clean Typography & Bio -->
+          <div class="clean-hero-left-wrapper">
+            <span class="clean-eyebrow-text">Software Engineer & Creative Technologist</span>
+            
+            <h1 class="clean-hero-left-name">
+              Maulana<br>Malik Ibrahim
+            </h1>
+
+            <p class="clean-hero-left-bio">
+              I transform ideas into digital experiences through web development, graphic design, photography, video, and visual storytelling.
+            </p>
+
+            <a href="#experience" class="hero-cta-btn">Explore Experience →</a>
+
+          </div>
+
+
+        </div>
+
+        <!-- Stage 2: Floating 3D Multi-Device Stage (Real Projects: Chroclock, Stematel Reader, Bobble) -->
+        <div class="apple-device-stage" id="appleDeviceStage">
+
+          <div class="stage-backdrop-glow"></div>
+
+          <!-- Device 1: Left Browser Mockup (Chroclock E-Commerce) -->
+          <div class="stage-device-item device-left" id="stageDeviceLeft">
+            <div class="stage-mockup-frame browser-frame">
+              <div class="frame-bar">
+                <div class="frame-dots">
+                  <span class="f-dot r"></span>
+                  <span class="f-dot y"></span>
+                  <span class="f-dot g"></span>
+                </div>
+                <span class="frame-url">chroclock.store</span>
+              </div>
+              <div class="frame-screen">
+                <img src="Asset/Chroclock.png" alt="Chroclock Platform" class="device-screen-img">
+              </div>
+            </div>
+            <div class="device-caption">
+              <span class="device-tag">Full-Stack & Payment</span>
+              <h4 class="device-name">Chroclock E-Commerce</h4>
+            </div>
+          </div>
+
+          <!-- Device 2: Center Phone Mockup (Stematel Reader) -->
+          <div class="stage-device-item device-center" id="stageDeviceCenter">
+            <img src="Asset/HP_SR_Tegak.png" alt="Stematel Reader Mobile" class="device-screen-img hp-hover-anim" style="width:250px;height:480px;object-fit:cover;border-radius:28px;display:block;">
+            <div class="device-caption">
+              <span class="device-tag">Social Media & Creative</span>
+              <h4 class="device-name">Stematel Reader</h4>
+            </div>
+          </div>
+
+          <!-- Device 3: Right Browser Mockup (Bobble UMKM) -->
+          <div class="stage-device-item device-right" id="stageDeviceRight">
+            <div class="stage-mockup-frame browser-frame">
+              <div class="frame-bar">
+                <div class="frame-dots">
+                  <span class="f-dot r"></span>
+                  <span class="f-dot y"></span>
+                  <span class="f-dot g"></span>
+                </div>
+                <span class="frame-url">bobbledrinks.id</span>
+              </div>
+              <div class="frame-screen">
+                <img src="Asset/Booble.png" alt="Bobble Landing Page" class="device-screen-img">
+              </div>
+            </div>
+            <div class="device-caption">
+              <span class="device-tag">UI/UX & Web Landing</span>
+              <h4 class="device-name">Bobble Drinks</h4>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Framer Text_Opacity_Letters Scroll Reveal Section -->
+    <section class="framer-intro-section" id="intro">
+      <div class="framer-container intro-centered">
+
+
+        <!-- Text Opacity Letters Animation Component -->
+        <div class="text-opacity-container" id="scrollTextContainer">
+          <h2 class="text-opacity-heading" id="textOpacityHeading">
+            Some ideas are written. Some are designed. Some are captured in light, and some are brought
+            to life through motion. I simply give them a place to exist.
+          </h2>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Editorial About Me Section (Matching User Screenshots) -->
+    <section class="framer-about-editorial-section" id="about">
+      <div class="framer-container">
+
+        <!-- Big Top Editorial Heading -->
+        <div class="about-editorial-header">
+          <h2 class="editorial-main-title">I build what matters.</h2>
+          <h3 class="editorial-sub-title">Shaped for People. Built to Endure.</h3>
+        </div>
+
+        <!-- 2-Column Editorial Grid -->
+        <div class="about-editorial-grid">
+
+          <!-- Left Column: Profile Card & Riwayat Pendidikan Stacked Card -->
+          <div class="about-left-col">
+            <div class="about-profile-card">
+              <div class="about-photo-wrapper img-glow-1">
+                <img src="Asset/Foto.png" alt="Maulana Malik Ibrahim" class="about-photo-img">
+                <div class="photo-social-badges">
+                  <a href="https://www.linkedin.com/in/maulana-malik-ibrahim-612189424/" target="_blank"
+                    rel="noopener noreferrer" class="social-pill-badge linkedin-badge" title="LinkedIn Profile"
+                    aria-label="LinkedIn Profile">
+                    <img src="Asset/linkedin.png" alt="LinkedIn" class="social-icon-img">
+                  </a>
+                  <a href="https://www.instagram.com/m.lanamalik_/" target="_blank" rel="noopener noreferrer"
+                    class="social-pill-badge instagram-badge" title="Instagram Profile" aria-label="Instagram Profile">
+                    <img src="Asset/instagram.png" alt="Instagram" class="social-icon-img">
+                    <span class="social-badge-number" data-count="1,450">1,450</span>
+                  </a>
+                </div>
+              </div>
+              <div class="about-profile-meta">
+                <h3 class="profile-name">Maulana Malik Ibrahim</h3>
+                <p class="profile-role">Software Engineer & Creative Technologist</p>
+              </div>
+            </div>
+
+            <!-- "Riwayat Pendidikan" Expandable Stacked Card Component -->
+            <div class="education-history-block" id="educationBlock">
+              <h4 class="education-block-title">Riwayat Pendidikan</h4>
+
+              <!-- Stacked Cards Container (Expands Downwards) -->
+              <div class="stacked-cv-cards" id="stackedCvCards">
+                <div class="stacked-card card-layer-3"></div>
+                <div class="stacked-card card-layer-2"></div>
+                <div class="stacked-card card-layer-1"></div>
+
+                <!-- Primary Always-Visible Card -->
+                <div class="stacked-card card-layer-top">
+                  <div class="card-content-row">
+                    <div class="card-info">
+                      <h5 class="edu-institution">SMK Telkom Purwokerto</h5>
+                      <p class="edu-degree">Rekayasa Perangkat Lunak / Software Engineering</p>
+                    </div>
+                    <div class="card-period">2025 - 2028</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Inline Expanded Extra Entries (Slides Down on 'See all') -->
+              <div class="expanded-edu-wrapper" id="expandedEduWrapper">
+                <div class="expanded-edu-card">
+                  <div class="card-content-row">
+                    <div class="card-info">
+                      <h5 class="edu-institution">SMP Istiqomah Sambas Purbalingga</h5>
+                      <p class="edu-degree">Sekolah Menengah Pertama</p>
+                    </div>
+                    <div class="card-period">2022 - 2025</div>
+                  </div>
+                </div>
+
+                <div class="expanded-edu-card">
+                  <div class="card-content-row">
+                    <div class="card-info">
+                      <h5 class="edu-institution">SDN 2 Kalimanah</h5>
+                      <p class="edu-degree">Sekolah Dasar</p>
+                    </div>
+                    <div class="card-period">2016 - 2022</div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="see-all-pill-btn" id="toggleEducationBtn" aria-expanded="false">
+                <span id="eduBtnText">See all</span>
+                <i data-lucide="chevron-down" id="eduBtnIcon"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Editorial Narrative Story -->
+          <div class="about-right-col">
+            <p class="story-lead">
+              I build software not for the sake of making things work, but to <strong>make them meaningful</strong>.
+            </p>
+
+            <p class="story-paragraph">
+              I bring together <strong>engineering, systems, and design</strong> to shape digital products that are
+              fast, resilient, and purposeful <em>built with precision, shaped for people</em>.
+            </p>
+
+            <p class="story-paragraph">
+              I believe quality is rarely born from grand gestures. It is shaped in the <strong>quiet details</strong>:
+              the architecture chosen, the code refined, and the countless decisions hidden beneath the surface.
+            </p>
+
+            <p class="story-paragraph">
+              <strong>My goal is simple:</strong> to create systems that endure  adaptable to change, resilient over
+              time, and meaningful to the people who use them.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Bureau Dimanche Style Editorial Services Section (Matching bureau-dimanche.com design) -->
+    <section class="bureau-services-section" id="services">
+      <div class="framer-container">
+
+        <div class="bureau-services-grid">
+
+          <!-- Left Column: Dual-tone Headline & Tools Tech Stack Row -->
+          <div class="bureau-left-col">
+            <div class="bureau-headline-wrapper">
+              <h2 class="headline-muted">A collection of skills, ideas, and creative paths</h2>
+              <h2 class="headline-highlight">I explore as I learn, create, and grow.</h2>
+            </div>
+
+            <!-- Tools & Tech Stack Row (Matching "Mes outils" from screenshot) -->
+            <div class="bureau-tools-block">
+              <span class="tools-label">Tools</span>
+              <div class="tools-marquee-container">
+                <div class="tools-marquee-track">
+                  <div class="tools-row">
+                    <div class="tool-pill" data-tooltip="Figma">
+                      <img src="Asset/Figma.png" alt="Figma" class="tool-icon-img">
+                      <span class="tool-tooltip">Figma</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="Illustrator">
+                      <img src="Asset/Ilustrator.png" alt="Illustrator" class="tool-icon-img">
+                      <span class="tool-tooltip">Illustrator</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="Lightroom">
+                      <img src="Asset/Lightroom.png" alt="Lightroom" class="tool-icon-img">
+                      <span class="tool-tooltip">Lightroom</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="Canva">
+                      <img src="Asset/Canva.png" alt="Canva" class="tool-icon-img">
+                      <span class="tool-tooltip">Canva</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="MySQL">
+                      <img src="Asset/MySQL.png" alt="MySQL" class="tool-icon-img">
+                      <span class="tool-tooltip">MySQL</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="VS Code">
+                      <img src="Asset/VScode.png" alt="VS Code" class="tool-icon-img">
+                      <span class="tool-tooltip">VS Code</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="GitHub">
+                      <img src="Asset/GitHub.png" alt="GitHub" class="tool-icon-img">
+                      <span class="tool-tooltip">GitHub</span>
+                    </div>
+                  </div>
+
+                  <!-- Duplicate row for seamless infinite loop -->
+                  <div class="tools-row" aria-hidden="true">
+                    <div class="tool-pill" data-tooltip="Figma">
+                      <img src="Asset/Figma.png" alt="Figma" class="tool-icon-img">
+                      <span class="tool-tooltip">Figma</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="Illustrator">
+                      <img src="Asset/Ilustrator.png" alt="Illustrator" class="tool-icon-img">
+                      <span class="tool-tooltip">Illustrator</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="Lightroom">
+                      <img src="Asset/Lightroom.png" alt="Lightroom" class="tool-icon-img">
+                      <span class="tool-tooltip">Lightroom</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="Canva">
+                      <img src="Asset/Canva.png" alt="Canva" class="tool-icon-img">
+                      <span class="tool-tooltip">Canva</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="MySQL">
+                      <img src="Asset/MySQL.png" alt="MySQL" class="tool-icon-img">
+                      <span class="tool-tooltip">MySQL</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="VS Code">
+                      <img src="Asset/VScode.png" alt="VS Code" class="tool-icon-img">
+                      <span class="tool-tooltip">VS Code</span>
+                    </div>
+                    <div class="tool-pill" data-tooltip="GitHub">
+                      <img src="Asset/GitHub.png" alt="GitHub" class="tool-icon-img">
+                      <span class="tool-tooltip">GitHub</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Services List with Infinite Vertical Loop (Ticker) -->
+          <div class="bureau-right-col">
+            <div class="bureau-marquee-container">
+              <div class="bureau-marquee-track">
+                <ul class="bureau-service-list">
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="code-2"></i>
+                    </div>
+                    <span class="service-item-title">Full Stack Web Development</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="layout"></i>
+                    </div>
+                    <span class="service-item-title">UI/UX Desain</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="palette"></i>
+                    </div>
+                    <span class="service-item-title">Graphic & Poster Design</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="camera"></i>
+                    </div>
+                    <span class="service-item-title">Photography</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="video"></i>
+                    </div>
+                    <span class="service-item-title">Cinematography</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="film"></i>
+                    </div>
+                    <span class="service-item-title">Video Editing</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="sliders"></i>
+                    </div>
+                    <span class="service-item-title">Photo Editing</span>
+                  </li>
+                </ul>
+
+                <!-- Duplicate list for seamless infinite looping -->
+                <ul class="bureau-service-list" aria-hidden="true">
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="code-2"></i>
+                    </div>
+                    <span class="service-item-title">Full Stack Web Development</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="layout"></i>
+                    </div>
+                    <span class="service-item-title">UI/UX Desain</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="palette"></i>
+                    </div>
+                    <span class="service-item-title">Graphic & Poster Design</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="camera"></i>
+                    </div>
+                    <span class="service-item-title">Photography</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="video"></i>
+                    </div>
+                    <span class="service-item-title">Cinematography</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="film"></i>
+                    </div>
+                    <span class="service-item-title">Video Editing</span>
+                  </li>
+                  <li class="bureau-service-item">
+                    <div class="service-badge">
+                      <i data-lucide="sliders"></i>
+                    </div>
+                    <span class="service-item-title">Photo Editing</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Stematel Reader Organization Experience Showcase Section -->
+    <section class="experience-showcase-section" id="experience">
+      <div class="framer-container">
+
+        <div class="framer-section-header">
+          <h2 class="framer-section-title">Experience & Project</h2>
+        </div>
+
+        <!-- Cards Wrapper -->
+        <div class="experience-showcase-cards-wrapper">
+
+          <!-- Card 1: Stematel Reader -->
+          <div class="experience-showcase-card">
+
+            <!-- Left Column: 3D Smartphone Image Mockup -->
+            <div class="experience-phone-col">
+              <div class="phone-glow-effect"></div>
+              <div class="phone-mockup-wrapper">
+                <img src="Asset/HP_SR.png" alt="Stematel Reader Social Media Showcase" class="phone-mockup-img hp-hover-anim">
+              </div>
+            </div>
+
+            <!-- Right Column: Editorial Details & Tech Stack -->
+            <div class="experience-info-col">
+
+              <div class="info-header">
+                <h3 class="experience-title">Stematel Reader | Social Media & Creative Design</h3>
+                <span class="experience-badge">Tim Media Sosial</span>
+              </div>
+
+              <p class="experience-desc">
+                Mengelola dan merancang visual media sosial untuk organisasi <strong>Stematel Reader</strong>.
+                Berfokus pada penyampaian informasi yang informatif, modern, dan konsisten membangun identitas visual
+                organisasi
+                melalui berbagai kampanye digital, desain konten edukatif, serta promosi kegiatan.
+              </p>
+
+              <div class="experience-tools-block">
+                <span class="tools-title">Tools</span>
+                <div class="tools-pills-row">
+                  <div class="exp-tool-badge" title="Figma">
+                    <img src="Asset/Figma.png" alt="Figma" class="exp-tool-img">
+                    <span>Figma</span>
+                  </div>
+                  <div class="exp-tool-badge" title="Illustrator">
+                    <img src="Asset/Ilustrator.png" alt="Illustrator" class="exp-tool-img">
+                    <span>Illustrator</span>
+                  </div>
+                  <div class="exp-tool-badge" title="Canva">
+                    <img src="Asset/Canva.png" alt="Canva" class="exp-tool-img">
+                    <span>Canva</span>
+                  </div>
+                  <div class="exp-tool-badge" title="Instagram">
+                    <img src="Asset/instagram.png" alt="Instagram" class="exp-tool-img">
+                    <span>Instagram</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Card 2: Chroclock Professional E-Commerce & Company Profile -->
+          <div class="experience-showcase-card chroclock-card">
+
+            <!-- Left Column: Professional Browser / Device Mockup Showcase -->
+            <div class="experience-phone-col">
+              <div class="phone-glow-effect blue-glow"></div>
+              <div class="browser-mockup-wrapper">
+                <div class="browser-header">
+                  <div class="browser-dots">
+                    <span class="b-dot red"></span>
+                    <span class="b-dot yellow"></span>
+                    <span class="b-dot green"></span>
+                  </div>
+                  <div class="browser-url-bar">
+                    <i data-lucide="shield-check" style="width: 12px; height: 12px; color: #4ade80;"></i>
+                    <span>Chroclock E-Commerce Platform</span>
+                  </div>
+                </div>
+                <div class="browser-screen-content">
+                  <img src="Asset/Chroclock.png" alt="Chroclock E-Commerce Showcase" class="browser-screen-img">
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Editorial Details & Tech Stack -->
+            <div class="experience-info-col">
+
+              <div class="info-header">
+                <h3 class="experience-title">Chroclock | E-Commerce & Company Profile</h3>
+                <span class="experience-badge">Projek E-Commerce & Database</span>
+              </div>
+
+              <p class="experience-desc">
+                Merancang dan mengimplementasikan platform web <strong>Company Profile sekaligus E-Commerce profesional</strong> 
+                untuk brand <strong>Chroclock</strong>. Terhubung secara penuh ke sistem <strong>Midtrans Payment Gateway</strong> otomatis 
+                serta basis data (<strong>Database MySQL</strong>), memungkinkan transaksi penjualan langsung secara aman, manajemen produk, 
+                dan pengelolaan data pelanggan sesuai standar aplikasi web profesional.
+              </p>
+
+              <div class="experience-tools-block">
+                <span class="tools-title">Tools</span>
+                <div class="tools-pills-row">
+                  <div class="exp-tool-badge" title="MySQL Database">
+                    <img src="Asset/MySQL.png" alt="MySQL" class="exp-tool-img">
+                    <span>MySQL Database</span>
+                  </div>
+                  <div class="exp-tool-badge" title="Midtrans Payment Gateway">
+                    <i data-lucide="credit-card" style="width: 16px; height: 16px; color: #ffffff;"></i>
+                    <span>Midtrans Payment Gateway</span>
+                  </div>
+                  <div class="exp-tool-badge" title="VS Code">
+                    <img src="Asset/VScode.png" alt="VS Code" class="exp-tool-img">
+                    <span>VS Code</span>
+                  </div>
+                  <div class="exp-tool-badge" title="Figma">
+                    <img src="Asset/Figma.png" alt="Figma" class="exp-tool-img">
+                    <span>Figma UI/UX</span>
+                  </div>
+                  <div class="exp-tool-badge" title="GitHub">
+                    <img src="Asset/GitHub.png" alt="GitHub" class="exp-tool-img">
+                    <span>GitHub Repository</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Card 3: Bobble UMKM Beverage Landing Page -->
+          <div class="experience-showcase-card bobble-card">
+
+            <!-- Left Column: Professional Browser / Device Mockup Showcase -->
+            <div class="experience-phone-col">
+              <div class="phone-glow-effect purple-glow"></div>
+              <div class="browser-mockup-wrapper">
+                <div class="browser-header">
+                  <div class="browser-dots">
+                    <span class="b-dot red"></span>
+                    <span class="b-dot yellow"></span>
+                    <span class="b-dot green"></span>
+                  </div>
+                  <div class="browser-url-bar">
+                    <i data-lucide="shield-check" style="width: 12px; height: 12px; color: #4ade80;"></i>
+                    <span>Bobble UMKM Landing Page</span>
+                  </div>
+                </div>
+                <div class="browser-screen-content">
+                  <img src="Asset/Booble.png" alt="Bobble UMKM Beverage Landing Page" class="browser-screen-img">
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Editorial Details & Tech Stack -->
+            <div class="experience-info-col">
+
+              <div class="info-header">
+                <h3 class="experience-title">Bobble | UMKM Beverage Landing Page</h3>
+                <span class="experience-badge">Projek Landing Page & UI/UX</span>
+              </div>
+
+              <p class="experience-desc">
+                Merancang dan membangun website <strong>Landing Page interaktif untuk UMKM minuman brand Bobble</strong>. 
+                Berfokus pada penyajian katalog varian menu yang menarik dan menggugah selera, tata letak responsif, 
+                serta optimasi antarmuka (*UI/UX*) untuk meningkatkan minat beli pelanggan secara digital.
+              </p>
+
+              <div class="experience-tools-block">
+                <span class="tools-title">Tools</span>
+                <div class="tools-pills-row">
+                  <div class="exp-tool-badge" title="Figma">
+                    <img src="Asset/Figma.png" alt="Figma" class="exp-tool-img">
+                    <span>Figma UI/UX</span>
+                  </div>
+                  <div class="exp-tool-badge" title="VS Code">
+                    <img src="Asset/VScode.png" alt="VS Code" class="exp-tool-img">
+                    <span>VS Code</span>
+                  </div>
+                  <div class="exp-tool-badge" title="GitHub">
+                    <img src="Asset/GitHub.png" alt="GitHub" class="exp-tool-img">
+                    <span>GitHub Repository</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Collaborate Contact Section (Matching User Image) -->
+    <section class="collaborate-contact-section" id="contact">
+      <div class="collaborate-container">
+
+        <div class="collaborate-canvas">
+
+          <!-- Central Heading -->
+          <h2 class="collaborate-title">Let’s Collaborate</h2>
+
+          <!-- Floating Contact Pills (6 Pills Matching Reference Layout) -->
+
+          <!-- 1. WhatsApp Pill (Top Left) -->
+          <a href="https://wa.me/6285601445637" target="_blank" rel="noopener noreferrer"
+            class="collaborate-pill pill-whatsapp" title="Hubungi via WhatsApp">
+            <span class="pill-icon-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </span>
+            <span class="pill-text">+62 856-0144-5637</span>
+          </a>
+
+          <!-- 2. Location Pill (Top Right) -->
+          <div class="collaborate-pill pill-location" title="Lokasi">
+            <span class="pill-icon-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </span>
+            <span class="pill-text">Purbalingga</span>
+          </div>
+
+          <!-- 3. Email Pill (Middle Right) -->
+          <a href="mailto:mawlanamalik.lana@gmail.com" class="collaborate-pill pill-email" title="Kirim Email">
+            <span class="pill-icon-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </span>
+            <span class="pill-text">mawlanamalik.lana@gmail.com</span>
+          </a>
+
+          <!-- 4. LinkedIn Pill (Bottom Middle) -->
+          <a href="https://www.linkedin.com/in/maulana-malik-ibrahim-612189424/" target="_blank"
+            rel="noopener noreferrer" class="collaborate-pill pill-linkedin" title="LinkedIn Profile">
+            <span class="pill-icon-wrapper box-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+              </svg>
+            </span>
+            <span class="pill-text">Maulana Malik Ibrahim</span>
+          </a>
+
+          <!-- 5. GitHub Pill (Bottom Left) -->
+          <a href="https://github.com/mawmawl" target="_blank" rel="noopener noreferrer"
+            class="collaborate-pill pill-github" title="GitHub Profile">
+            <span class="pill-icon-wrapper box-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+            </span>
+            <span class="pill-text">mawmawl</span>
+          </a>
+
+          <!-- 6. Instagram Pill (Bottom Right) -->
+          <a href="https://www.instagram.com/m.lanamalik_/" target="_blank" rel="noopener noreferrer"
+            class="collaborate-pill pill-instagram" title="Instagram Profile">
+            <span class="pill-icon-wrapper">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </span>
+            <span class="pill-text">m.lanamalik_</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Framer Component: Footer (D0xax_z3K) -->
+  <footer class="framer-footer">
+
+    <!-- Top Divider Glow -->
+    <div class="footer-glow-line"></div>
+
+    <div class="framer-container">
+
+      <!-- Footer Top: Name + Nav Links -->
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-big-logo">Maulana<br>Malik Ibrahim</span>
+          <p class="footer-tagline">Software Engineer & Creative Technologist</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="#about" class="footer-nav-link">About</a>
+          <a href="#projects" class="footer-nav-link">Projects</a>
+          <a href="#skills" class="footer-nav-link">Skills</a>
+          <a href="#contact" class="footer-nav-link">Contact</a>
+        </nav>
+      </div>
+
+      <!-- Footer Mid: Social -->
+      <div class="footer-mid">
+        <div class="footer-social">
+          <a href="https://instagram.com" target="_blank" class="footer-social-btn">
+            <img src="Asset/instagram.png" alt="Instagram" class="footer-social-icon">
+            <span>Instagram</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="footer-social-btn">
+            <img src="Asset/linkedin.png" alt="LinkedIn" class="footer-social-icon">
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com" target="_blank" class="footer-social-btn">
+            <img src="Asset/GitHub.png" alt="GitHub" class="footer-social-icon">
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Bottom: Copyright + Back to Top -->
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Maulana Malik Ibrahim. Built with passion.</p>
+        <button class="scroll-top-btn" id="scrollTopBtn">
+          <span>Back to Top</span>
+          <i data-lucide="arrow-up"></i>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Project Detail Modal -->
+  <div class="modal-backdrop" id="projectModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
