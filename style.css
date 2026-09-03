@@ -3471,6 +3471,124 @@ body.framer-body {
   .footer-big-logo {
     font-size: clamp(1.4rem, 5vw, 1.9rem);
   }
+
+  /* --- Restore & adapt animations for mobile --- */
+
+  /* Aurora + slow zoom stay (subtle ambient motion) */
+  .aquarium-bg-img,
+  .aquarium-ambient-aurora {
+    animation: none;
+  }
+
+  /* Subtle entrance: phone mockup gentle float */
+  @keyframes mobileDeviceFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .stage-device-item.device-center {
+    animation: mobileDeviceFloat 4s ease-in-out infinite;
+  }
+
+  /* Hover/active lift for HP_SR images on mobile (tap = active) */
+  .hp-hover-anim:active {
+    transform: scale(1.04) translateY(-6px);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8))
+            drop-shadow(0 20px 40px rgba(147, 197, 253, 0.25));
+  }
+
+  /* CTA button press feedback */
+  .hero-cta-btn:active {
+    transform: translateY(1px) scale(0.98);
+    background: rgba(147, 197, 253, 0.22);
+    border-color: rgba(147, 197, 253, 0.7);
+  }
+
+  /* Pill subtle entrance on scroll into view */
+  @keyframes mobilePillSlideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .collaborate-pill {
+    animation: mobilePillSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both !important;
+  }
+
+  .collaborate-pill:nth-child(2) { animation-delay: 0.05s !important; }
+  .collaborate-pill:nth-child(3) { animation-delay: 0.10s !important; }
+  .collaborate-pill:nth-child(4) { animation-delay: 0.15s !important; }
+  .collaborate-pill:nth-child(5) { animation-delay: 0.20s !important; }
+  .collaborate-pill:nth-child(6) { animation-delay: 0.25s !important; }
+  .collaborate-pill:nth-child(7) { animation-delay: 0.30s !important; }
+
+  /* Tap-feedback for pills */
+  .collaborate-pill:active {
+    transform: scale(0.97) !important;
+  }
+
+  /* Nav drawer link tap-feedback */
+  .framer-menu-link:active {
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  /* Restore tools marquee scroll on mobile (slower for readability) */
+  .tools-marquee-track {
+    animation-duration: 28s;
+  }
+
+  .bureau-marquee-track {
+    animation-duration: 32s;
+  }
+
+  /* Service badge icon subtle pulse */
+  @keyframes mobileServicePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+
+  .service-badge i,
+  .service-badge svg {
+    animation: mobileServicePulse 3s ease-in-out infinite;
+  }
+
+  /* Status dot pulse (status badge already has it, keep) */
+
+  /* Scroll-wheel dot keeps animating (CSS already covers it) */
+
+  /* Tool pill tap-feedback */
+  .tool-pill:active {
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  /* Experience card subtle hover-like lift on tap */
+  @keyframes mobileCardSettle {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .experience-showcase-card {
+    animation: mobileCardSettle 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .experience-showcase-card:nth-child(1) { animation-delay: 0s; }
+  .experience-showcase-card:nth-child(2) { animation-delay: 0.1s; }
+  .experience-showcase-card:nth-child(3) { animation-delay: 0.2s; }
+
+  /* Social pill tap-feedback */
+  .social-pill-badge:active,
+  .footer-social-btn:active {
+    transform: scale(0.96);
+  }
+
+  /* Profile photo subtle entrance */
+  @keyframes mobilePhotoFade {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .about-photo-wrapper {
+    animation: mobilePhotoFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 }
 
 /* Small phones (≤ 420px) */
