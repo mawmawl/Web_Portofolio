@@ -2439,22 +2439,6 @@ body.framer-body {
 }
 
 @media (max-width: 768px) {
-  .framer-nav-menu {
-    position: fixed;
-    top: 5rem;
-    left: 1rem;
-    right: 1rem;
-    background: rgba(10, 10, 12, 0.95);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--framer-border);
-    border-radius: 20px;
-    padding: 1.5rem;
-    flex-direction: column;
-    gap: 1.2rem;
-    display: none;
-  }
-  .framer-nav-menu.open { display: flex; }
-  .mobile-toggle-btn { display: block; }
   .framer-services-grid { grid-template-columns: 1fr; }
   .intro-details-grid { grid-template-columns: 1fr; }
 }
@@ -3088,7 +3072,7 @@ body.framer-body {
    MOBILE RESPONSIVE — PHONE LAYOUT FIXES (≤ 768px)
    ========================================================================== */
 
-/* Hamburger icon bars */
+/* Hamburger icon bars (legacy — no longer shown on mobile, navbar uses desktop pill) */
 .mobile-toggle-bar {
   display: block;
   width: 20px;
@@ -3128,83 +3112,85 @@ body.framer-body {
 }
 
 @media (max-width: 768px) {
-  /* --- Navbar: hide full menu, show hamburger; menu drops below --- */
+  /* --- Navbar: same desktop pill behavior, compacted for small screens --- */
   .framer-navbar-wrapper {
     top: 0.75rem;
     padding: 0 0.75rem;
   }
 
+  /* Pill scales to fit viewport with safe padding */
   .framer-navbar {
-    max-width: 100%;
-    padding: 0.4rem 0.6rem 0.4rem 1rem;
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.3rem 0.5rem 0.3rem 0.95rem;
   }
 
+  /* Expanded state: tighter spacing & font to fit all 5 menu items */
   .framer-navbar .nav-expanded-content {
-    display: none;
-  }
-
-  .framer-navbar .nav-minimized-content {
-    display: flex;
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-    pointer-events: auto;
-    position: static;
-    transform: none;
-    flex: 1;
-  }
-
-  .framer-navbar.is-minimized {
-    max-width: 100%;
-    padding: 0.4rem 0.6rem 0.4rem 1rem;
-  }
-
-  .framer-navbar.is-minimized .nav-minimized-content {
-    opacity: 1;
-    transform: none;
-    pointer-events: auto;
-  }
-
-  .framer-navbar.is-minimized.is-hover-expanded {
-    max-width: 100% !important;
-    padding: 0.4rem 0.6rem 0.4rem 1rem !important;
-  }
-
-  .minimized-name {
-    font-size: 0.78rem;
-  }
-
-  .mobile-toggle-btn {
-    display: flex;
-  }
-
-  /* Mobile drawer menu */
-  .framer-nav-menu {
-    display: none;
-    position: fixed;
-    top: 4.2rem;
-    left: 0.75rem;
-    right: 0.75rem;
-    flex-direction: column;
-    align-items: stretch;
     gap: 0.4rem;
-    background: rgba(10, 10, 14, 0.92);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 20px;
-    padding: 1rem;
-    z-index: 99;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
   }
 
-  .framer-nav-menu.open {
-    display: flex;
+  .framer-logo {
+    font-size: 0.7rem;
+    letter-spacing: -0.01em;
+  }
+
+  .logo-mark {
+    width: 22px;
+    height: 22px;
+    font-size: 0.68rem;
+  }
+
+  .framer-nav-menu {
+    gap: 0.05rem;
+    padding: 0.12rem;
   }
 
   .framer-menu-link {
-    padding: 0.7rem 1rem;
-    font-size: 0.92rem;
-    text-align: center;
+    font-size: 0.66rem;
+    padding: 0.24rem 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* Minimized state: keep desktop dots behavior */
+  .framer-navbar .nav-minimized-content {
+    display: flex;
+  }
+
+  /* Minimized pill width */
+  .framer-navbar.is-minimized {
+    max-width: 220px;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .framer-navbar.is-minimized.is-hover-expanded {
+    max-width: calc(100vw - 1.5rem) !important;
+    padding: 0.3rem 0.5rem 0.3rem 0.95rem !important;
+  }
+
+  .minimized-name {
+    font-size: 0.72rem;
+  }
+
+  .dots-indicator {
+    padding: 0.3rem 0.55rem;
+  }
+
+  /* Hide hamburger — mobile uses desktop pill directly */
+  .mobile-toggle-btn {
+    display: none !important;
+  }
+
+  /* Mobile menu: keep desktop inline (no drawer) */
+  .framer-nav-menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 0.12rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: none;
+    gap: 0.05rem;
   }
 
   /* --- Hero section --- */
@@ -3474,34 +3460,69 @@ body.framer-body {
 
   /* --- Restore & adapt animations for mobile --- */
 
-  /* Aurora + slow zoom stay (subtle ambient motion) */
+  /* All desktop animations play on mobile too (parity) */
   .aquarium-bg-img,
-  .aquarium-ambient-aurora {
-    animation: none;
+  .aquarium-ambient-aurora,
+  .particle,
+  .clean-scroll-dot,
+  .status-dot-pulse,
+  .live-dot,
+  .footer-status-dot,
+  .dots-indicator,
+  .dot {
+    /* Inherit original animation declarations from desktop rules */
+    animation: inherit;
   }
 
-  /* Subtle entrance: phone mockup gentle float */
-  @keyframes mobileDeviceFloat {
+  /* Slightly slower marquee for readability on small screens */
+  .tools-marquee-track {
+    animation-duration: 28s;
+  }
+
+  .bureau-marquee-track {
+    animation-duration: 32s;
+  }
+
+  /* Float pills: keep desktop floatPill1-6 animations, but tighter amplitude */
+  .pill-whatsapp,
+  .pill-location,
+  .pill-email,
+  .pill-linkedin,
+  .pill-github,
+  .pill-instagram {
+    position: static !important;
+    animation-duration: 5s !important;
+    animation-iteration-count: infinite !important;
+    animation-timing-function: ease-in-out !important;
+    animation-name: none !important;
+  }
+
+  @keyframes mobileFloatPill {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-5px); }
   }
 
-  .stage-device-item.device-center {
-    animation: mobileDeviceFloat 4s ease-in-out infinite;
-  }
+  .pill-whatsapp { animation-name: mobileFloatPill !important; animation-duration: 5s !important; }
+  .pill-location { animation-name: mobileFloatPill !important; animation-duration: 6s !important; animation-delay: -1s !important; }
+  .pill-email    { animation-name: mobileFloatPill !important; animation-duration: 5.5s !important; animation-delay: -2s !important; }
+  .pill-linkedin { animation-name: mobileFloatPill !important; animation-duration: 6.5s !important; animation-delay: -0.5s !important; }
+  .pill-github   { animation-name: mobileFloatPill !important; animation-duration: 5.2s !important; animation-delay: -1.5s !important; }
+  .pill-instagram{ animation-name: mobileFloatPill !important; animation-duration: 6s !important; animation-delay: -2.5s !important; }
 
-  /* Hover/active lift for HP_SR images on mobile (tap = active) */
+  /* HP_SR image: tap = active lift (matches desktop hover on touch devices) */
   .hp-hover-anim:active {
-    transform: scale(1.04) translateY(-6px);
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8))
-            drop-shadow(0 20px 40px rgba(147, 197, 253, 0.25));
+    transform: scale(1.06) translateY(-8px) rotate(-1.5deg);
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.85))
+            drop-shadow(0 28px 48px rgba(147, 197, 253, 0.3))
+            drop-shadow(0 0 18px rgba(147, 197, 253, 0.2));
   }
 
   /* CTA button press feedback */
   .hero-cta-btn:active {
-    transform: translateY(1px) scale(0.98);
+    transform: translateY(-1px) scale(0.98);
     background: rgba(147, 197, 253, 0.22);
     border-color: rgba(147, 197, 253, 0.7);
+    color: #bfdbfe;
   }
 
   /* Pill subtle entrance on scroll into view */
@@ -3511,34 +3532,18 @@ body.framer-body {
   }
 
   .collaborate-pill {
-    animation: mobilePillSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both !important;
+    animation: mobilePillSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both,
+               mobileFloatPill 5s ease-in-out infinite !important;
+    animation-delay: 0s, 0.5s !important;
   }
 
-  .collaborate-pill:nth-child(2) { animation-delay: 0.05s !important; }
-  .collaborate-pill:nth-child(3) { animation-delay: 0.10s !important; }
-  .collaborate-pill:nth-child(4) { animation-delay: 0.15s !important; }
-  .collaborate-pill:nth-child(5) { animation-delay: 0.20s !important; }
-  .collaborate-pill:nth-child(6) { animation-delay: 0.25s !important; }
-  .collaborate-pill:nth-child(7) { animation-delay: 0.30s !important; }
-
-  /* Tap-feedback for pills */
-  .collaborate-pill:active {
-    transform: scale(0.97) !important;
-  }
-
-  /* Nav drawer link tap-feedback */
-  .framer-menu-link:active {
-    background: rgba(255, 255, 255, 0.18);
-  }
-
-  /* Restore tools marquee scroll on mobile (slower for readability) */
-  .tools-marquee-track {
-    animation-duration: 28s;
-  }
-
-  .bureau-marquee-track {
-    animation-duration: 32s;
-  }
+  /* Stagger entrance delays per pill */
+  .pill-whatsapp  { animation-delay: 0.05s, 0.55s !important; }
+  .pill-location  { animation-delay: 0.10s, -1s !important; }
+  .pill-email     { animation-delay: 0.15s, -2s !important; }
+  .pill-linkedin  { animation-delay: 0.20s, -0.5s !important; }
+  .pill-github    { animation-delay: 0.25s, -1.5s !important; }
+  .pill-instagram { animation-delay: 0.30s, -2.5s !important; }
 
   /* Service badge icon subtle pulse */
   @keyframes mobileServicePulse {
@@ -3551,16 +3556,7 @@ body.framer-body {
     animation: mobileServicePulse 3s ease-in-out infinite;
   }
 
-  /* Status dot pulse (status badge already has it, keep) */
-
-  /* Scroll-wheel dot keeps animating (CSS already covers it) */
-
-  /* Tool pill tap-feedback */
-  .tool-pill:active {
-    transform: translateY(-2px) scale(1.05);
-  }
-
-  /* Experience card subtle hover-like lift on tap */
+  /* Experience card subtle entrance */
   @keyframes mobileCardSettle {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -3573,12 +3569,6 @@ body.framer-body {
   .experience-showcase-card:nth-child(1) { animation-delay: 0s; }
   .experience-showcase-card:nth-child(2) { animation-delay: 0.1s; }
   .experience-showcase-card:nth-child(3) { animation-delay: 0.2s; }
-
-  /* Social pill tap-feedback */
-  .social-pill-badge:active,
-  .footer-social-btn:active {
-    transform: scale(0.96);
-  }
 
   /* Profile photo subtle entrance */
   @keyframes mobilePhotoFade {
