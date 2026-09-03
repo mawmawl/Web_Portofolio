@@ -3084,4 +3084,418 @@ body.framer-body {
 }
 
 
+/* ==========================================================================
+   MOBILE RESPONSIVE — PHONE LAYOUT FIXES (≤ 768px)
+   ========================================================================== */
+
+/* Hamburger icon bars */
+.mobile-toggle-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  margin: 4px auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-toggle-btn {
+  display: none;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.mobile-toggle-btn.open .mobile-toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-toggle-btn.open .mobile-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle-btn.open .mobile-toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  /* --- Navbar: hide full menu, show hamburger; menu drops below --- */
+  .framer-navbar-wrapper {
+    top: 0.75rem;
+    padding: 0 0.75rem;
+  }
+
+  .framer-navbar {
+    max-width: 100%;
+    padding: 0.4rem 0.6rem 0.4rem 1rem;
+  }
+
+  .framer-navbar .nav-expanded-content {
+    display: none;
+  }
+
+  .framer-navbar .nav-minimized-content {
+    display: flex;
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+    pointer-events: auto;
+    position: static;
+    transform: none;
+    flex: 1;
+  }
+
+  .framer-navbar.is-minimized {
+    max-width: 100%;
+    padding: 0.4rem 0.6rem 0.4rem 1rem;
+  }
+
+  .framer-navbar.is-minimized .nav-minimized-content {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .framer-navbar.is-minimized.is-hover-expanded {
+    max-width: 100% !important;
+    padding: 0.4rem 0.6rem 0.4rem 1rem !important;
+  }
+
+  .minimized-name {
+    font-size: 0.78rem;
+  }
+
+  .mobile-toggle-btn {
+    display: flex;
+  }
+
+  /* Mobile drawer menu */
+  .framer-nav-menu {
+    display: none;
+    position: fixed;
+    top: 4.2rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.4rem;
+    background: rgba(10, 10, 14, 0.92);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    padding: 1rem;
+    z-index: 99;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  }
+
+  .framer-nav-menu.open {
+    display: flex;
+  }
+
+  .framer-menu-link {
+    padding: 0.7rem 1rem;
+    font-size: 0.92rem;
+    text-align: center;
+  }
+
+  /* --- Hero section --- */
+  .apple-hero-section {
+    min-height: 180vh;
+  }
+
+  .left-aligned-view {
+    padding: 5rem 1.25rem 2rem 1.25rem;
+    align-items: flex-start;
+  }
+
+  .clean-hero-left-wrapper {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .clean-hero-left-name {
+    font-size: clamp(2.4rem, 11vw, 3.6rem);
+    line-height: 0.96;
+  }
+
+  .clean-eyebrow-text {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.75rem;
+  }
+
+  .clean-hero-left-bio {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    max-width: 100%;
+  }
+
+  .hero-cta-btn {
+    padding: 0.65rem 1.3rem;
+    font-size: 0.88rem;
+    margin-top: 1.2rem;
+  }
+
+  /* --- Apple device stage: collapse to phone-only preview on mobile --- */
+  .apple-device-stage {
+    position: relative;
+    height: auto;
+    min-height: 520px;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .stage-backdrop-glow {
+    width: 320px;
+    height: 320px;
+  }
+
+  .stage-device-item.device-left,
+  .stage-device-item.device-right {
+    display: none;
+  }
+
+  .stage-device-item.device-center {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  /* --- Intro text section --- */
+  .framer-intro-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .text-opacity-heading {
+    font-size: clamp(1.5rem, 6.5vw, 2.2rem);
+    line-height: 1.4;
+  }
+
+  /* --- About editorial section --- */
+  .framer-about-editorial-section {
+    padding: 5rem 0 5rem 0;
+  }
+
+  .about-editorial-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .about-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-photo-wrapper {
+    aspect-ratio: 1 / 1.05;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .about-profile-meta {
+    text-align: center;
+  }
+
+  .education-history-block {
+    margin-top: 2rem;
+  }
+
+  .story-lead {
+    font-size: 1.4rem;
+  }
+
+  .story-paragraph {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  /* --- Bureau services section --- */
+  .bureau-services-section {
+    padding: 5rem 0;
+  }
+
+  .bureau-services-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .bureau-headline-wrapper {
+    margin-bottom: 2rem;
+  }
+
+  .bureau-marquee-container {
+    height: 380px;
+  }
+
+  .tools-marquee-container {
+    padding: 48px 14px 24px 14px;
+  }
+
+  /* --- Experience showcase cards: kill sticky stacking on mobile --- */
+  .experience-showcase-section {
+    padding: 4rem 0 6rem 0;
+  }
+
+  .experience-showcase-cards-wrapper {
+    gap: 2rem;
+  }
+
+  .experience-showcase-card,
+  .experience-showcase-card:nth-child(1),
+  .experience-showcase-card:nth-child(2),
+  .experience-showcase-card:nth-child(3) {
+    position: relative;
+    top: auto !important;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.75rem 1.25rem;
+    border-radius: 24px;
+  }
+
+  .phone-mockup-wrapper,
+  .browser-mockup-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+    transform: none !important;
+  }
+
+  .experience-phone-col {
+    order: -1;
+  }
+
+  .experience-title {
+    font-size: 1.4rem;
+  }
+
+  .experience-desc {
+    font-size: 0.92rem;
+  }
+
+  .tools-pills-row {
+    gap: 0.5rem;
+  }
+
+  .exp-tool-badge {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  /* --- Collaborate contact: stack pills vertically --- */
+  .collaborate-contact-section {
+    padding: 5rem 0 6rem 0;
+  }
+
+  .collaborate-canvas {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .collaborate-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .collaborate-pill {
+    position: static !important;
+    animation: none !important;
+    font-size: 0.82rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    max-width: 320px;
+    justify-content: flex-start;
+  }
+
+  .pill-text {
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* --- Footer --- */
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 0 1rem;
+    gap: 1.25rem;
+  }
+
+  .footer-nav {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-self: flex-start;
+    gap: 0.5rem 1rem;
+  }
+
+  .footer-nav-link {
+    font-size: 0.85rem;
+  }
+
+  .footer-mid {
+    padding: 1rem 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* --- Toast & modal --- */
+  .toast-container {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  /* --- Container padding --- */
+  .framer-container,
+  .collaborate-container {
+    padding: 0 1.25rem;
+  }
+
+  .footer-big-logo {
+    font-size: clamp(1.4rem, 5vw, 1.9rem);
+  }
+}
+
+/* Small phones (≤ 420px) */
+@media (max-width: 420px) {
+  .clean-hero-left-name {
+    font-size: 2.4rem;
+  }
+
+  .collaborate-pill {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .exp-tool-badge {
+    font-size: 0.72rem;
+    padding: 0.28rem 0.6rem;
+  }
+}
+
+/* Prevent horizontal scroll on mobile from any absolute-positioned overflow */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+
 
