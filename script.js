@@ -96,30 +96,57 @@ document.addEventListener('DOMContentLoaded', () => {
           appleDeviceStage.style.pointerEvents = stageOpacity > 0.5 ? 'auto' : 'none';
 
           // 3D Multi-Device Spatial Separation (Fly in from depth and settle into multi-angle stage)
-          // Center Phone: Moves forward towards camera
-          const centerScale = 0.8 + (clampedP2 * 0.25);
-          const centerTranslateZ = -200 + (clampedP2 * 250);
-          const centerRotateX = (1 - clampedP2) * 20;
-          if (deviceCenter) {
-            deviceCenter.style.transform = `translate3d(0, 0, ${centerTranslateZ}px) rotateX(${centerRotateX}deg) scale(${centerScale})`;
-          }
+          const isMobile = window.innerWidth <= 768;
 
-          // Left Browser: Swings in from the left with 3D angle
-          const leftTranslateX = -450 * clampedP2;
-          const leftTranslateZ = -300 + (clampedP2 * 150);
-          const leftRotateY = 22 * clampedP2;
-          const leftRotateZ = -4 * clampedP2;
-          if (deviceLeft) {
-            deviceLeft.style.transform = `translate3d(${leftTranslateX}px, 0, ${leftTranslateZ}px) rotateY(${leftRotateY}deg) rotateZ(${leftRotateZ}deg)`;
-          }
+          if (isMobile) {
+            // Mobile: Proportional spread & depth so all 3 devices fit on screen
+            const mobileSpread = Math.min(110, Math.max(85, window.innerWidth * 0.27));
+            const centerScale = 0.85 + (clampedP2 * 0.2);
+            const centerTranslateZ = -100 + (clampedP2 * 140);
+            const centerRotateX = (1 - clampedP2) * 15;
+            if (deviceCenter) {
+              deviceCenter.style.transform = `translate3d(0, 0, ${centerTranslateZ}px) rotateX(${centerRotateX}deg) scale(${centerScale})`;
+            }
 
-          // Right Browser: Swings in from the right with 3D angle
-          const rightTranslateX = 450 * clampedP2;
-          const rightTranslateZ = -300 + (clampedP2 * 150);
-          const rightRotateY = -22 * clampedP2;
-          const rightRotateZ = 4 * clampedP2;
-          if (deviceRight) {
-            deviceRight.style.transform = `translate3d(${rightTranslateX}px, 0, ${rightTranslateZ}px) rotateY(${rightRotateY}deg) rotateZ(${rightRotateZ}deg)`;
+            const leftTranslateX = -mobileSpread * clampedP2;
+            const leftTranslateZ = -180 + (clampedP2 * 90);
+            const leftRotateY = 22 * clampedP2;
+            const leftRotateZ = -4 * clampedP2;
+            if (deviceLeft) {
+              deviceLeft.style.transform = `translate3d(${leftTranslateX}px, 0, ${leftTranslateZ}px) rotateY(${leftRotateY}deg) rotateZ(${leftRotateZ}deg)`;
+            }
+
+            const rightTranslateX = mobileSpread * clampedP2;
+            const rightTranslateZ = -180 + (clampedP2 * 90);
+            const rightRotateY = -22 * clampedP2;
+            const rightRotateZ = 4 * clampedP2;
+            if (deviceRight) {
+              deviceRight.style.transform = `translate3d(${rightTranslateX}px, 0, ${rightTranslateZ}px) rotateY(${rightRotateY}deg) rotateZ(${rightRotateZ}deg)`;
+            }
+          } else {
+            // Desktop: Full desktop spread & depth
+            const centerScale = 0.8 + (clampedP2 * 0.25);
+            const centerTranslateZ = -200 + (clampedP2 * 250);
+            const centerRotateX = (1 - clampedP2) * 20;
+            if (deviceCenter) {
+              deviceCenter.style.transform = `translate3d(0, 0, ${centerTranslateZ}px) rotateX(${centerRotateX}deg) scale(${centerScale})`;
+            }
+
+            const leftTranslateX = -450 * clampedP2;
+            const leftTranslateZ = -300 + (clampedP2 * 150);
+            const leftRotateY = 22 * clampedP2;
+            const leftRotateZ = -4 * clampedP2;
+            if (deviceLeft) {
+              deviceLeft.style.transform = `translate3d(${leftTranslateX}px, 0, ${leftTranslateZ}px) rotateY(${leftRotateY}deg) rotateZ(${leftRotateZ}deg)`;
+            }
+
+            const rightTranslateX = 450 * clampedP2;
+            const rightTranslateZ = -300 + (clampedP2 * 150);
+            const rightRotateY = -22 * clampedP2;
+            const rightRotateZ = 4 * clampedP2;
+            if (deviceRight) {
+              deviceRight.style.transform = `translate3d(${rightTranslateX}px, 0, ${rightTranslateZ}px) rotateY(${rightRotateY}deg) rotateZ(${rightRotateZ}deg)`;
+            }
           }
         } else {
           appleDeviceStage.style.opacity = '0';
@@ -286,7 +313,26 @@ document.addEventListener('DOMContentLoaded', () => {
     navbar.addEventListener('mouseleave', () => {
       navbar.classList.remove('is-hover-expanded');
     });
+
+    // Touch/tap support on mobile for 3-dots indicator and minimized pill
+    navbar.addEventListener('click', (e) => {
+      if (navbar.classList.contains('is-minimized')) {
+        const link = e.target.closest('.framer-menu-link');
+        if (link) {
+          navbar.classList.remove('is-hover-expanded');
+          return;
+        }
+        navbar.classList.toggle('is-hover-expanded');
+      }
+    });
   }
+
+  // Tap outside to close expanded menu on mobile
+  document.addEventListener('click', (e) => {
+    if (navbar && navbar.classList.contains('is-hover-expanded') && !navbar.contains(e.target)) {
+      navbar.classList.remove('is-hover-expanded');
+    }
+  });
 
   // Mobile Menu Drawer Toggle
   const mobileToggle = document.getElementById('mobileToggle');
