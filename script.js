@@ -187,41 +187,53 @@ document.addEventListener('DOMContentLoaded', () => {
   fadeItems.forEach(item => scrollObserver.observe(item));
 
   // 3. Scroll Text Opacity Letters Animation (Text_Opacity_Letters.tsx Component)
+  // Perf: class-toggle + hanya huruf yang berubah state + skip saat off-screen.
+  // Versi lama menulis style opacity+color ke ~170 span tiap frame = repaint besar di mobile.
   const textHeading = document.getElementById('textOpacityHeading');
   if (textHeading) {
     const rawText = textHeading.textContent.trim();
     textHeading.innerHTML = '';
 
-    // Split into letters and wrap in spans
     const letters = rawText.split('').map(char => {
       const span = document.createElement('span');
       span.textContent = char;
-      span.style.opacity = '0.2';
-      span.style.transition = 'opacity 0.2s ease, color 0.2s ease';
       textHeading.appendChild(span);
       return span;
     });
 
-    window.addEventListener('scroll', () => {
+    let prevLitCount = -1;
+    let textScrollQueued = false;
+    const updateTextOpacity = () => {
+      textScrollQueued = false;
       const rect = textHeading.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+
+      // Heading jauh di luar viewport -> tidak ada yang berubah, skip
+      if (rect.top > windowHeight + 200 || rect.bottom < -200) return;
 
       // Calculate scroll progress through the element
       let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
       progress = Math.max(0, Math.min(1, progress));
 
       const activeCount = Math.floor(progress * letters.length * 1.3);
+      if (activeCount === prevLitCount) return;
 
-      letters.forEach((letter, index) => {
-        if (index < activeCount) {
-          letter.style.opacity = '1';
-          letter.style.color = '#1f1f24';
-        } else {
-          letter.style.opacity = '0.3';
-          letter.style.color = '#71717a';
-        }
-      });
+      // Tulis hanya huruf yang statusnya berubah sejak frame lalu
+      if (activeCount > prevLitCount) {
+        for (let i = Math.max(0, prevLitCount); i < activeCount; i++) letters[i].classList.add('lit');
+      } else {
+        for (let i = activeCount; i < letters.length; i++) letters[i].classList.remove('lit');
+      }
+      prevLitCount = activeCount;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!textScrollQueued) {
+        textScrollQueued = true;
+        requestAnimationFrame(updateTextOpacity);
+      }
     }, { passive: true });
+    updateTextOpacity();
   }
 
   // 3.5 Dynamic Stacking Cards Animation with Enhanced Internal Parallax (Option 1 + 3)

@@ -1091,6 +1091,17 @@ body.framer-body {
   text-align: center;
 }
 
+/* Letter states (di-toggle JS per scroll, hanya huruf yang berubah) */
+.text-opacity-heading span {
+  opacity: 0.3;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.text-opacity-heading span.lit {
+  opacity: 1;
+  color: #1f1f24;
+}
+
 /* Editorial About Me Section (Matching User Screenshots from bureau-dimanche.com) */
 .framer-about-editorial-section {
   position: relative;
