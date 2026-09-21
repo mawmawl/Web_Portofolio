@@ -11,9 +11,9 @@
   <!-- Google Fonts: Poppins (Headings: SemiBold/Bold, Body: Regular/Medium) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'; this.onload=null;">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
   <!-- Lucide Icons -->
   <script defer src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- LCP preload: hero aquarium background -->
-  <link rel="preload" as="image" href="Asset/webp/Aquarium.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="Asset/webp/Aquarium.webp" imagesrcset="Asset/webp/Aquarium-800.webp 800w, Asset/webp/Aquarium.webp 1280w" imagesizes="100vw" fetchpriority="high">
 </head>
 
 <body class="framer-body">
@@ -86,7 +86,7 @@
 
           <!-- Full Screen Clean Ambient Aquarium Visual -->
           <div class="aquarium-bg-wrapper">
-            <img src="Asset/webp/Aquarium.webp" loading="eager" fetchpriority="high" decoding="async" width="1280" height="911" alt="Atmospheric Aquarium Visual" class="aquarium-bg-img">
+            <img src="Asset/webp/Aquarium.webp" srcset="Asset/webp/Aquarium-800.webp 800w, Asset/webp/Aquarium.webp 1280w" sizes="100vw" loading="eager" fetchpriority="high" decoding="async" width="1280" height="911" alt="Atmospheric Aquarium Visual" class="aquarium-bg-img">
             <div class="aquarium-vignette-overlay"></div>
             <div class="aquarium-ambient-aurora"></div>
           </div>
@@ -128,7 +128,7 @@
                 <span class="frame-url">chroclock.store</span>
               </div>
               <div class="frame-screen">
-                <img src="Asset/webp/Chroclock.webp" loading="lazy" decoding="async" width="1280" height="729" alt="Chroclock Platform" class="device-screen-img">
+                <img src="Asset/webp/Chroclock.webp" srcset="Asset/webp/Chroclock-640.webp 640w, Asset/webp/Chroclock.webp 1280w" sizes="(max-width: 768px) 100vw, 640px" loading="lazy" decoding="async" width="1280" height="729" alt="Chroclock Platform" class="device-screen-img">
               </div>
             </div>
             <div class="device-caption">
@@ -139,7 +139,7 @@
 
           <!-- Device 2: Center Phone Mockup (Stematel Reader) -->
           <div class="stage-device-item device-center" id="stageDeviceCenter">
-            <img src="Asset/webp/HP_SR_Tegak.webp" loading="lazy" decoding="async" width="500" height="1027" alt="Stematel Reader Mobile" class="device-screen-img hp-hover-anim" style="width:250px;height:480px;object-fit:cover;border-radius:28px;display:block;">
+            <img src="Asset/webp/HP_SR_Tegak.webp" srcset="Asset/webp/HP_SR_Tegak-250.webp 250w, Asset/webp/HP_SR_Tegak.webp 500w" sizes="250px" loading="lazy" decoding="async" width="500" height="1027" alt="Stematel Reader Mobile" class="device-screen-img hp-hover-anim" style="width:250px;height:480px;object-fit:cover;border-radius:28px;display:block;">
             <div class="device-caption">
               <span class="device-tag">Social Media & Creative</span>
               <h4 class="device-name">Stematel Reader</h4>
@@ -158,7 +158,7 @@
                 <span class="frame-url">bobbledrinks.id</span>
               </div>
               <div class="frame-screen">
-                <img src="Asset/webp/Booble.webp" loading="lazy" decoding="async" width="1280" height="728" alt="Bobble Landing Page" class="device-screen-img">
+                <img src="Asset/webp/Booble.webp" srcset="Asset/webp/Booble-640.webp 640w, Asset/webp/Booble.webp 1280w" sizes="(max-width: 768px) 100vw, 640px" loading="lazy" decoding="async" width="1280" height="728" alt="Bobble Landing Page" class="device-screen-img">
               </div>
             </div>
             <div class="device-caption">
@@ -205,7 +205,7 @@
           <div class="about-left-col">
             <div class="about-profile-card">
               <div class="about-photo-wrapper img-glow-1">
-                <img src="Asset/webp/Foto.webp" loading="lazy" decoding="async" width="720" height="684" alt="Maulana Malik Ibrahim" class="about-photo-img">
+                <img src="Asset/webp/Foto.webp" srcset="Asset/webp/Foto-360.webp 360w, Asset/webp/Foto.webp 720w" sizes="(max-width: 768px) 320px, 360px" loading="lazy" decoding="async" width="720" height="684" alt="Maulana Malik Ibrahim" class="about-photo-img">
                 <div class="photo-social-badges">
                   <a href="https://www.linkedin.com/in/maulana-malik-ibrahim-612189424/" target="_blank"
                     rel="noopener noreferrer" class="social-pill-badge linkedin-badge" title="LinkedIn Profile"
@@ -575,7 +575,7 @@
                   </div>
                 </div>
                 <div class="browser-screen-content">
-                  <img src="Asset/webp/Chroclock.webp" loading="lazy" decoding="async" width="1280" height="729" alt="Chroclock E-Commerce Showcase" class="browser-screen-img">
+                  <img src="Asset/webp/Chroclock.webp" srcset="Asset/webp/Chroclock-640.webp 640w, Asset/webp/Chroclock.webp 1280w" sizes="(max-width: 768px) 100vw, 640px" loading="lazy" decoding="async" width="1280" height="729" alt="Chroclock E-Commerce Showcase" class="browser-screen-img">
                 </div>
               </div>
             </div>
@@ -644,7 +644,7 @@
                   </div>
                 </div>
                 <div class="browser-screen-content">
-                  <img src="Asset/webp/Booble.webp" loading="lazy" decoding="async" width="1280" height="728" alt="Bobble UMKM Beverage Landing Page" class="browser-screen-img">
+                  <img src="Asset/webp/Booble.webp" srcset="Asset/webp/Booble-640.webp 640w, Asset/webp/Booble.webp 1280w" sizes="(max-width: 768px) 100vw, 640px" loading="lazy" decoding="async" width="1280" height="728" alt="Bobble UMKM Beverage Landing Page" class="browser-screen-img">
                 </div>
               </div>
             </div>
