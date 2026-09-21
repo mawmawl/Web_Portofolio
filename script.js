@@ -118,17 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
           const isMobile = window.innerWidth <= 768;
 
           if (isMobile) {
-            // Mobile: Proportional spread & depth so all 3 devices fit on screen
+            // Mobile: mulai dari identity (scale 1, Z 0, rot 0) -> kontinyu dengan
+            // keadaan diam. Tidak ada lompatan mengecil saat stage mulai terlihat.
             const mobileSpread = Math.min(110, Math.max(85, window.innerWidth * 0.27));
-            const centerScale = 0.85 + (clampedP2 * 0.2);
-            const centerTranslateZ = -100 + (clampedP2 * 140);
-            const centerRotateX = (1 - clampedP2) * 15;
+            const centerScale = 1 + (clampedP2 * 0.08);
+            const centerTranslateZ = clampedP2 * 70;
+            const centerRotateX = clampedP2 * (1 - clampedP2) * 40;
             if (deviceCenter) {
               deviceCenter.style.transform = `translate3d(0, 0, ${centerTranslateZ}px) rotateX(${centerRotateX}deg) scale(${centerScale})`;
             }
 
             const leftTranslateX = -mobileSpread * clampedP2;
-            const leftTranslateZ = -180 + (clampedP2 * 90);
+            const leftTranslateZ = -100 * clampedP2;
             const leftRotateY = 22 * clampedP2;
             const leftRotateZ = -4 * clampedP2;
             if (deviceLeft) {
@@ -136,17 +137,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const rightTranslateX = mobileSpread * clampedP2;
-            const rightTranslateZ = -180 + (clampedP2 * 90);
+            const rightTranslateZ = -100 * clampedP2;
             const rightRotateY = -22 * clampedP2;
             const rightRotateZ = 4 * clampedP2;
             if (deviceRight) {
               deviceRight.style.transform = `translate3d(${rightTranslateX}px, 0, ${rightTranslateZ}px) rotateY(${rightRotateY}deg) rotateZ(${rightRotateZ}deg)`;
             }
           } else {
-            // Desktop: Full desktop spread & depth
-            const centerScale = 0.8 + (clampedP2 * 0.25);
-            const centerTranslateZ = -200 + (clampedP2 * 250);
-            const centerRotateX = (1 - clampedP2) * 20;
+            // Desktop: juga mulai dari identity -> kontinyu, tanpa lompatan
+            const centerScale = 1 + (clampedP2 * 0.1);
+            const centerTranslateZ = clampedP2 * 80;
+            const centerRotateX = clampedP2 * (1 - clampedP2) * 50;
             if (deviceCenter) {
               deviceCenter.style.transform = `translate3d(0, 0, ${centerTranslateZ}px) rotateX(${centerRotateX}deg) scale(${centerScale})`;
             }
