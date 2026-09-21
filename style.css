@@ -3315,9 +3315,24 @@ body.framer-body {
     padding: 0;
   }
 
+  /* Mobile: device stage TANPA shadow/cahaya (hemat tekstur GPU).
+     Desktop tetap punya shadow + glow penuh. */
   .stage-backdrop-glow {
-    width: 260px;
-    height: 260px;
+    display: none;
+  }
+
+  .stage-mockup-frame {
+    box-shadow: none;
+  }
+
+  .stage-device-item:hover .stage-mockup-frame,
+  .stage-device-item:active .stage-mockup-frame {
+    box-shadow: none;
+  }
+
+  /* Drop-shadow hover/tap di layar HP center juga dimatikan di mobile */
+  #stageDeviceCenter .device-screen-img.hp-hover-anim {
+    filter: none;
   }
 
   .stage-device-item {
@@ -3356,7 +3371,7 @@ body.framer-body {
     width: clamp(175px, 46vw, 205px);
     height: clamp(115px, 30vw, 135px);
     border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85), 0 0 20px rgba(255, 255, 255, 0.05);
+    box-shadow: none;
   }
 
   .browser-frame .frame-bar {
