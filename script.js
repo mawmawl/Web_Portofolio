@@ -63,7 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const deviceRight = document.getElementById('stageDeviceRight');
 
   if (heroSection && appleEditorialView && appleDeviceStage) {
-    window.addEventListener('scroll', () => {
+    let heroScrollQueued = false;
+    const onHeroScroll = () => {
+      if (heroScrollQueued) return;
+      heroScrollQueued = true;
+      requestAnimationFrame(() => {
+        heroScrollQueued = false;
       const rect = heroSection.getBoundingClientRect();
       const heroHeight = heroSection.offsetHeight - window.innerHeight;
 
@@ -153,7 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
           appleDeviceStage.style.pointerEvents = 'none';
         }
       }
-    });
+      });
+    };
+    window.addEventListener('scroll', onHeroScroll, { passive: true });
   }
 
   // 2.5 Scroll Fade & Scale Reveal Observer for Scattered Photo Showcase
@@ -209,13 +216,18 @@ document.addEventListener('DOMContentLoaded', () => {
           letter.style.color = '#71717a';
         }
       });
-    });
+    }, { passive: true });
   }
 
   // 3.5 Dynamic Stacking Cards Animation with Enhanced Internal Parallax (Option 1 + 3)
   const expCards = document.querySelectorAll('.experience-showcase-card');
   if (expCards.length > 0) {
+    let stackingQueued = false;
     const handleStackingScroll = () => {
+      if (stackingQueued) return;
+      stackingQueued = true;
+      requestAnimationFrame(() => {
+        stackingQueued = false;
       const windowHeight = window.innerHeight;
 
       expCards.forEach((card, i) => {
@@ -252,13 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mockup) {
           const cardCenterOffset = (cardRect.top - targetTop) / windowHeight;
           const clampedOffset = Math.max(-0.5, Math.min(1, cardCenterOffset));
-          
+
           const translateY = clampedOffset * 35; // Mockup moves with a smooth floating rate
           const scale = 1 + (Math.max(0, 1 - Math.abs(clampedOffset)) * 0.04);
           const baseRotate = mockup.classList.contains('browser-mockup-wrapper') ? 2 : -3;
-          
+
           mockup.style.transform = `translateY(${translateY}px) rotate(${baseRotate}deg) scale(${scale})`;
         }
+      });
       });
     };
 
@@ -271,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.framer-menu-link');
   const sections = document.querySelectorAll('section[id]');
 
-  window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
       if (navbar) {
         navbar.classList.add('scrolled');
@@ -300,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link.classList.add('active');
       }
     });
-  });
+  }, { passive: true });
 
   // Hover 3-dots / navbar to expand menu back smoothly when minimalized
   if (navbar) {

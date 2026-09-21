@@ -12,14 +12,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
   <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script defer src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- LCP preload: hero aquarium background -->
+  <link rel="preload" as="image" href="Asset/webp/Aquarium.webp" fetchpriority="high">
 </head>
 
 <body class="framer-body">
@@ -83,7 +86,7 @@
 
           <!-- Full Screen Clean Ambient Aquarium Visual -->
           <div class="aquarium-bg-wrapper">
-            <img src="Asset/Aquarium.png" alt="Atmospheric Aquarium Visual" class="aquarium-bg-img">
+            <img src="Asset/webp/Aquarium.webp" loading="eager" fetchpriority="high" decoding="async" width="1280" height="911" alt="Atmospheric Aquarium Visual" class="aquarium-bg-img">
             <div class="aquarium-vignette-overlay"></div>
             <div class="aquarium-ambient-aurora"></div>
           </div>
@@ -125,7 +128,7 @@
                 <span class="frame-url">chroclock.store</span>
               </div>
               <div class="frame-screen">
-                <img src="Asset/Chroclock.png" alt="Chroclock Platform" class="device-screen-img">
+                <img src="Asset/webp/Chroclock.webp" loading="lazy" decoding="async" width="1280" height="729" alt="Chroclock Platform" class="device-screen-img">
               </div>
             </div>
             <div class="device-caption">
@@ -136,7 +139,7 @@
 
           <!-- Device 2: Center Phone Mockup (Stematel Reader) -->
           <div class="stage-device-item device-center" id="stageDeviceCenter">
-            <img src="Asset/HP_SR_Tegak.png" alt="Stematel Reader Mobile" class="device-screen-img hp-hover-anim" style="width:250px;height:480px;object-fit:cover;border-radius:28px;display:block;">
+            <img src="Asset/webp/HP_SR_Tegak.webp" loading="lazy" decoding="async" width="500" height="1027" alt="Stematel Reader Mobile" class="device-screen-img hp-hover-anim" style="width:250px;height:480px;object-fit:cover;border-radius:28px;display:block;">
             <div class="device-caption">
               <span class="device-tag">Social Media & Creative</span>
               <h4 class="device-name">Stematel Reader</h4>
@@ -155,7 +158,7 @@
                 <span class="frame-url">bobbledrinks.id</span>
               </div>
               <div class="frame-screen">
-                <img src="Asset/Booble.png" alt="Bobble Landing Page" class="device-screen-img">
+                <img src="Asset/webp/Booble.webp" loading="lazy" decoding="async" width="1280" height="728" alt="Bobble Landing Page" class="device-screen-img">
               </div>
             </div>
             <div class="device-caption">
@@ -202,16 +205,16 @@
           <div class="about-left-col">
             <div class="about-profile-card">
               <div class="about-photo-wrapper img-glow-1">
-                <img src="Asset/Foto.png" alt="Maulana Malik Ibrahim" class="about-photo-img">
+                <img src="Asset/webp/Foto.webp" loading="lazy" decoding="async" width="720" height="684" alt="Maulana Malik Ibrahim" class="about-photo-img">
                 <div class="photo-social-badges">
                   <a href="https://www.linkedin.com/in/maulana-malik-ibrahim-612189424/" target="_blank"
                     rel="noopener noreferrer" class="social-pill-badge linkedin-badge" title="LinkedIn Profile"
                     aria-label="LinkedIn Profile">
-                    <img src="Asset/linkedin.png" alt="LinkedIn" class="social-icon-img">
+                    <img src="Asset/webp/linkedin.webp" loading="lazy" decoding="async" width="96" height="64" alt="LinkedIn" class="social-icon-img">
                   </a>
                   <a href="https://www.instagram.com/m.lanamalik_/" target="_blank" rel="noopener noreferrer"
                     class="social-pill-badge instagram-badge" title="Instagram Profile" aria-label="Instagram Profile">
-                    <img src="Asset/instagram.png" alt="Instagram" class="social-icon-img">
+                    <img src="Asset/webp/instagram.webp" loading="lazy" decoding="async" width="96" height="89" alt="Instagram" class="social-icon-img">
                     <span class="social-badge-number" data-count="1,450">1,450</span>
                   </a>
                 </div>
@@ -322,31 +325,31 @@
                 <div class="tools-marquee-track">
                   <div class="tools-row">
                     <div class="tool-pill" data-tooltip="Figma">
-                      <img src="Asset/Figma.png" alt="Figma" class="tool-icon-img">
+                      <img src="Asset/webp/Figma.webp" loading="lazy" decoding="async" width="96" height="144" alt="Figma" class="tool-icon-img">
                       <span class="tool-tooltip">Figma</span>
                     </div>
                     <div class="tool-pill" data-tooltip="Illustrator">
-                      <img src="Asset/Ilustrator.png" alt="Illustrator" class="tool-icon-img">
+                      <img src="Asset/webp/Ilustrator.webp" loading="lazy" decoding="async" width="96" height="77" alt="Illustrator" class="tool-icon-img">
                       <span class="tool-tooltip">Illustrator</span>
                     </div>
                     <div class="tool-pill" data-tooltip="Lightroom">
-                      <img src="Asset/Lightroom.png" alt="Lightroom" class="tool-icon-img">
+                      <img src="Asset/webp/Lightroom.webp" loading="lazy" decoding="async" width="96" height="64" alt="Lightroom" class="tool-icon-img">
                       <span class="tool-tooltip">Lightroom</span>
                     </div>
                     <div class="tool-pill" data-tooltip="Canva">
-                      <img src="Asset/Canva.png" alt="Canva" class="tool-icon-img">
+                      <img src="Asset/webp/Canva.webp" loading="lazy" decoding="async" width="96" height="32" alt="Canva" class="tool-icon-img">
                       <span class="tool-tooltip">Canva</span>
                     </div>
                     <div class="tool-pill" data-tooltip="MySQL">
-                      <img src="Asset/MySQL.png" alt="MySQL" class="tool-icon-img">
+                      <img src="Asset/webp/MySQL.webp" loading="lazy" decoding="async" width="96" height="64" alt="MySQL" class="tool-icon-img">
                       <span class="tool-tooltip">MySQL</span>
                     </div>
                     <div class="tool-pill" data-tooltip="VS Code">
-                      <img src="Asset/VScode.png" alt="VS Code" class="tool-icon-img">
+                      <img src="Asset/webp/VScode.webp" loading="lazy" decoding="async" width="96" height="64" alt="VS Code" class="tool-icon-img">
                       <span class="tool-tooltip">VS Code</span>
                     </div>
                     <div class="tool-pill" data-tooltip="GitHub">
-                      <img src="Asset/GitHub.png" alt="GitHub" class="tool-icon-img">
+                      <img src="Asset/webp/GitHub.webp" loading="lazy" decoding="async" width="96" height="88" alt="GitHub" class="tool-icon-img">
                       <span class="tool-tooltip">GitHub</span>
                     </div>
                   </div>
@@ -354,31 +357,31 @@
                   <!-- Duplicate row for seamless infinite loop -->
                   <div class="tools-row" aria-hidden="true">
                     <div class="tool-pill" data-tooltip="Figma">
-                      <img src="Asset/Figma.png" alt="Figma" class="tool-icon-img">
+                      <img src="Asset/webp/Figma.webp" loading="lazy" decoding="async" width="96" height="144" alt="Figma" class="tool-icon-img">
                       <span class="tool-tooltip">Figma</span>
                     </div>
                     <div class="tool-pill" data-tooltip="Illustrator">
-                      <img src="Asset/Ilustrator.png" alt="Illustrator" class="tool-icon-img">
+                      <img src="Asset/webp/Ilustrator.webp" loading="lazy" decoding="async" width="96" height="77" alt="Illustrator" class="tool-icon-img">
                       <span class="tool-tooltip">Illustrator</span>
                     </div>
                     <div class="tool-pill" data-tooltip="Lightroom">
-                      <img src="Asset/Lightroom.png" alt="Lightroom" class="tool-icon-img">
+                      <img src="Asset/webp/Lightroom.webp" loading="lazy" decoding="async" width="96" height="64" alt="Lightroom" class="tool-icon-img">
                       <span class="tool-tooltip">Lightroom</span>
                     </div>
                     <div class="tool-pill" data-tooltip="Canva">
-                      <img src="Asset/Canva.png" alt="Canva" class="tool-icon-img">
+                      <img src="Asset/webp/Canva.webp" loading="lazy" decoding="async" width="96" height="32" alt="Canva" class="tool-icon-img">
                       <span class="tool-tooltip">Canva</span>
                     </div>
                     <div class="tool-pill" data-tooltip="MySQL">
-                      <img src="Asset/MySQL.png" alt="MySQL" class="tool-icon-img">
+                      <img src="Asset/webp/MySQL.webp" loading="lazy" decoding="async" width="96" height="64" alt="MySQL" class="tool-icon-img">
                       <span class="tool-tooltip">MySQL</span>
                     </div>
                     <div class="tool-pill" data-tooltip="VS Code">
-                      <img src="Asset/VScode.png" alt="VS Code" class="tool-icon-img">
+                      <img src="Asset/webp/VScode.webp" loading="lazy" decoding="async" width="96" height="64" alt="VS Code" class="tool-icon-img">
                       <span class="tool-tooltip">VS Code</span>
                     </div>
                     <div class="tool-pill" data-tooltip="GitHub">
-                      <img src="Asset/GitHub.png" alt="GitHub" class="tool-icon-img">
+                      <img src="Asset/webp/GitHub.webp" loading="lazy" decoding="async" width="96" height="88" alt="GitHub" class="tool-icon-img">
                       <span class="tool-tooltip">GitHub</span>
                     </div>
                   </div>
@@ -508,7 +511,7 @@
             <div class="experience-phone-col">
               <div class="phone-glow-effect"></div>
               <div class="phone-mockup-wrapper">
-                <img src="Asset/HP_SR.png" alt="Stematel Reader Social Media Showcase" class="phone-mockup-img hp-hover-anim">
+                <img src="Asset/webp/HP_SR.webp" loading="lazy" decoding="async" width="600" height="900" alt="Stematel Reader Social Media Showcase" class="phone-mockup-img hp-hover-anim">
               </div>
             </div>
 
@@ -531,19 +534,19 @@
                 <span class="tools-title">Tools</span>
                 <div class="tools-pills-row">
                   <div class="exp-tool-badge" title="Figma">
-                    <img src="Asset/Figma.png" alt="Figma" class="exp-tool-img">
+                    <img src="Asset/webp/Figma.webp" loading="lazy" decoding="async" width="96" height="144" alt="Figma" class="exp-tool-img">
                     <span>Figma</span>
                   </div>
                   <div class="exp-tool-badge" title="Illustrator">
-                    <img src="Asset/Ilustrator.png" alt="Illustrator" class="exp-tool-img">
+                    <img src="Asset/webp/Ilustrator.webp" loading="lazy" decoding="async" width="96" height="77" alt="Illustrator" class="exp-tool-img">
                     <span>Illustrator</span>
                   </div>
                   <div class="exp-tool-badge" title="Canva">
-                    <img src="Asset/Canva.png" alt="Canva" class="exp-tool-img">
+                    <img src="Asset/webp/Canva.webp" loading="lazy" decoding="async" width="96" height="32" alt="Canva" class="exp-tool-img">
                     <span>Canva</span>
                   </div>
                   <div class="exp-tool-badge" title="Instagram">
-                    <img src="Asset/instagram.png" alt="Instagram" class="exp-tool-img">
+                    <img src="Asset/webp/instagram.webp" loading="lazy" decoding="async" width="96" height="89" alt="Instagram" class="exp-tool-img">
                     <span>Instagram</span>
                   </div>
                 </div>
@@ -572,7 +575,7 @@
                   </div>
                 </div>
                 <div class="browser-screen-content">
-                  <img src="Asset/Chroclock.png" alt="Chroclock E-Commerce Showcase" class="browser-screen-img">
+                  <img src="Asset/webp/Chroclock.webp" loading="lazy" decoding="async" width="1280" height="729" alt="Chroclock E-Commerce Showcase" class="browser-screen-img">
                 </div>
               </div>
             </div>
@@ -596,7 +599,7 @@
                 <span class="tools-title">Tools</span>
                 <div class="tools-pills-row">
                   <div class="exp-tool-badge" title="MySQL Database">
-                    <img src="Asset/MySQL.png" alt="MySQL" class="exp-tool-img">
+                    <img src="Asset/webp/MySQL.webp" loading="lazy" decoding="async" width="96" height="64" alt="MySQL" class="exp-tool-img">
                     <span>MySQL Database</span>
                   </div>
                   <div class="exp-tool-badge" title="Midtrans Payment Gateway">
@@ -604,15 +607,15 @@
                     <span>Midtrans Payment Gateway</span>
                   </div>
                   <div class="exp-tool-badge" title="VS Code">
-                    <img src="Asset/VScode.png" alt="VS Code" class="exp-tool-img">
+                    <img src="Asset/webp/VScode.webp" loading="lazy" decoding="async" width="96" height="64" alt="VS Code" class="exp-tool-img">
                     <span>VS Code</span>
                   </div>
                   <div class="exp-tool-badge" title="Figma">
-                    <img src="Asset/Figma.png" alt="Figma" class="exp-tool-img">
+                    <img src="Asset/webp/Figma.webp" loading="lazy" decoding="async" width="96" height="144" alt="Figma" class="exp-tool-img">
                     <span>Figma UI/UX</span>
                   </div>
                   <div class="exp-tool-badge" title="GitHub">
-                    <img src="Asset/GitHub.png" alt="GitHub" class="exp-tool-img">
+                    <img src="Asset/webp/GitHub.webp" loading="lazy" decoding="async" width="96" height="88" alt="GitHub" class="exp-tool-img">
                     <span>GitHub Repository</span>
                   </div>
                 </div>
@@ -641,7 +644,7 @@
                   </div>
                 </div>
                 <div class="browser-screen-content">
-                  <img src="Asset/Booble.png" alt="Bobble UMKM Beverage Landing Page" class="browser-screen-img">
+                  <img src="Asset/webp/Booble.webp" loading="lazy" decoding="async" width="1280" height="728" alt="Bobble UMKM Beverage Landing Page" class="browser-screen-img">
                 </div>
               </div>
             </div>
@@ -664,15 +667,15 @@
                 <span class="tools-title">Tools</span>
                 <div class="tools-pills-row">
                   <div class="exp-tool-badge" title="Figma">
-                    <img src="Asset/Figma.png" alt="Figma" class="exp-tool-img">
+                    <img src="Asset/webp/Figma.webp" loading="lazy" decoding="async" width="96" height="144" alt="Figma" class="exp-tool-img">
                     <span>Figma UI/UX</span>
                   </div>
                   <div class="exp-tool-badge" title="VS Code">
-                    <img src="Asset/VScode.png" alt="VS Code" class="exp-tool-img">
+                    <img src="Asset/webp/VScode.webp" loading="lazy" decoding="async" width="96" height="64" alt="VS Code" class="exp-tool-img">
                     <span>VS Code</span>
                   </div>
                   <div class="exp-tool-badge" title="GitHub">
-                    <img src="Asset/GitHub.png" alt="GitHub" class="exp-tool-img">
+                    <img src="Asset/webp/GitHub.webp" loading="lazy" decoding="async" width="96" height="88" alt="GitHub" class="exp-tool-img">
                     <span>GitHub Repository</span>
                   </div>
                 </div>
@@ -806,15 +809,15 @@
       <div class="footer-mid">
         <div class="footer-social">
           <a href="https://instagram.com" target="_blank" class="footer-social-btn">
-            <img src="Asset/instagram.png" alt="Instagram" class="footer-social-icon">
+            <img src="Asset/webp/instagram.webp" loading="lazy" decoding="async" width="96" height="89" alt="Instagram" class="footer-social-icon">
             <span>Instagram</span>
           </a>
           <a href="https://linkedin.com" target="_blank" class="footer-social-btn">
-            <img src="Asset/linkedin.png" alt="LinkedIn" class="footer-social-icon">
+            <img src="Asset/webp/linkedin.webp" loading="lazy" decoding="async" width="96" height="64" alt="LinkedIn" class="footer-social-icon">
             <span>LinkedIn</span>
           </a>
           <a href="https://github.com" target="_blank" class="footer-social-btn">
-            <img src="Asset/GitHub.png" alt="GitHub" class="footer-social-icon">
+            <img src="Asset/webp/GitHub.webp" loading="lazy" decoding="async" width="96" height="88" alt="GitHub" class="footer-social-icon">
             <span>GitHub</span>
           </a>
         </div>
