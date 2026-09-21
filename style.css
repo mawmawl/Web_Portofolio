@@ -468,9 +468,8 @@ body.framer-body {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.05);
-  filter: brightness(0.65) contrast(1.15) saturate(1.2);
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  /* CSS filter di-bake ke asset (brightness/contrast/saturate sudah di dalam file) -
+     filter live di layer full-screen = repaint mahal di mobile */
   animation: slowAmbientZoom 25s ease-in-out infinite alternate;
 }
 
@@ -489,7 +488,7 @@ body.framer-body {
   pointer-events: none;
 }
 
-/* Ambient Glow Aurora Layer */
+/* Ambient Glow Aurora Layer - gradient sudah blur (di-bake ke webp), no CSS blur */
 .aquarium-ambient-aurora {
   position: absolute;
   top: 40%;
@@ -497,8 +496,7 @@ body.framer-body {
   transform: translate(-50%, -50%);
   width: 700px;
   height: 400px;
-  background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.18) 0%, rgba(168, 85, 247, 0.12) 45%, transparent 70%);
-  filter: blur(60px);
+  background: url('Asset/webp/aurora.webp') center / contain no-repeat;
   pointer-events: none;
   animation: auroraFloat 10s ease-in-out infinite alternate;
 }
@@ -777,8 +775,8 @@ body.framer-body {
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(192, 132, 252, 0.08) 40%, transparent 70%);
-  filter: blur(60px);
+  /* glow di-bake ke webp - no CSS blur di dalam stage yang di-transform tiap frame */
+  background: url('Asset/webp/stage-glow.webp') center / contain no-repeat;
   z-index: 1;
   pointer-events: none;
 }
@@ -2733,8 +2731,8 @@ body.framer-body {
   position: absolute;
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 50%, transparent 70%);
-  filter: blur(40px);
+  /* glow di-bake ke webp - no CSS blur di dalam kartu sticky yang di-scale tiap frame */
+  background: url('Asset/webp/phone-glow.webp') center / contain no-repeat;
   z-index: 1;
   pointer-events: none;
 }
@@ -3316,7 +3314,6 @@ body.framer-body {
   .stage-backdrop-glow {
     width: 260px;
     height: 260px;
-    filter: blur(45px);
   }
 
   .stage-device-item {
