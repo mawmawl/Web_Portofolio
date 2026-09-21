@@ -446,7 +446,7 @@ body.framer-body {
   padding: 5.5rem 2rem 3rem 2rem;
   box-sizing: border-box;
   text-align: center;
-  transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  /* JS drives transform/opacity per scroll frame - CSS transition would chase it (lag) */
   transform-origin: center center;
   will-change: transform, opacity;
   overflow: hidden;
@@ -769,7 +769,7 @@ body.framer-body {
   transform-style: preserve-3d;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease-out;
+  /* JS drives opacity per scroll frame - no CSS transition (chase lag) */
   will-change: transform, opacity;
 }
 
@@ -789,8 +789,9 @@ body.framer-body {
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.2s ease;
-  will-change: transform, filter;
+  /* NO transform/filter transition here: JS drives transform every scroll frame.
+     A CSS transition would chase the JS value (restarts mid-interpolation each frame) = scroll lag. */
+  will-change: transform;
   cursor: pointer;
 }
 
@@ -2676,8 +2677,8 @@ body.framer-body {
   gap: 3.5rem;
   align-items: center;
   background: linear-gradient(135deg, rgba(28, 28, 36, 0.98) 0%, rgba(16, 16, 22, 0.99) 100%);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
+  /* backdrop blur (28px) di kartu sticky = repaint penuh tiap scroll frame = lag utama.
+     Background sudah 98-99% opaque, blur-nya hampir tak terlihat - dihapus. */
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 32px;
   padding: 3.5rem;
@@ -2685,7 +2686,9 @@ body.framer-body {
     0 -10px 30px rgba(0, 0, 0, 0.5),
     0 30px 60px rgba(0, 0, 0, 0.8),
     inset 0 1px 1.5px rgba(255, 255, 255, 0.2);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  /* transform+filter dihapus dari transition: JS menggerakkan keduanya tiap scroll frame
+     (stacking effect) - transition bikin nilai ngejar = lag. border/shadow hover tetap transisi. */
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
   overflow: hidden;
   will-change: transform, filter;
 }

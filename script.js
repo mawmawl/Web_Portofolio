@@ -9,14 +9,19 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // 2. Mouse Spotlight Tracking Effect
+  // 2. Mouse Spotlight Tracking Effect (rAF-throttled)
   const spotlight = document.getElementById('spotlightOverlay');
+  let spotlightQueued = false;
   window.addEventListener('mousemove', (e) => {
-    if (spotlight) {
-      spotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
-      spotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+    if (spotlight && !spotlightQueued) {
+      spotlightQueued = true;
+      requestAnimationFrame(() => {
+        spotlight.style.setProperty('--mouse-x', `${e.clientX}px`);
+        spotlight.style.setProperty('--mouse-y', `${e.clientY}px`);
+        spotlightQueued = false;
+      });
     }
-  });
+  }, { passive: true });
 
   // 1.5 Live Typing Role Switcher in Stage 1
   const roleEl = document.getElementById('heroRoleDynamic');
@@ -246,16 +251,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const scale = 1 - (clampedProgress * 0.06);
             const brightness = 1 - (clampedProgress * 0.4);
-            const blur = clampedProgress * 2.5;
-            
+
             card.style.transform = `scale(${scale})`;
-            card.style.filter = `brightness(${brightness}) blur(${blur}px)`;
+            card.style.filter = `brightness(${brightness})`;
           } else if (nextRect.top <= nextTargetTop) {
             card.style.transform = `scale(0.94)`;
-            card.style.filter = `brightness(0.6) blur(2.5px)`;
+            card.style.filter = `brightness(0.6)`;
           } else {
             card.style.transform = `scale(1)`;
-            card.style.filter = `brightness(1) blur(0px)`;
+            card.style.filter = `brightness(1)`;
           }
         }
 
