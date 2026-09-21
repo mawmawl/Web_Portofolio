@@ -378,14 +378,18 @@ body.framer-body {
   font-weight: 500;
   padding: 0.32rem 0.85rem;
   border-radius: 100px;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  /* border transparan dicadangkan: hover/active hanya ganti warna, box tidak berubah ukuran (no glitch) */
+  border: 1px solid transparent;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
 }
 
 .framer-menu-link:hover {
   color: #ffffff;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .framer-menu-link.active {
@@ -3162,10 +3166,11 @@ body.framer-body {
     flex-shrink: 0;
   }
 
-  /* Standard mobile menu link: font >= 12px, tinggi total pill ~44-48px */
+  /* Standard mobile menu link: font >= 12px, tinggi total pill ~44-48px
+     (padding dikompensasi 1px/sisi untuk border cadangan) */
   .framer-menu-link {
     font-size: clamp(0.72rem, 3.5vw, 0.78rem);
-    padding: 0.45rem clamp(0.35rem, 1vw, 0.5rem);
+    padding: 0.45rem clamp(0.28rem, 1vw, 0.42rem);
     letter-spacing: -0.01em;
   }
 
