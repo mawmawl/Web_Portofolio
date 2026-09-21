@@ -69,13 +69,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (heroSection && appleEditorialView && appleDeviceStage) {
     let heroScrollQueued = false;
+    // Tinggi track hero DI-CACHE: window.innerHeight berubah saat toolbar browser
+    // collapse/expand di tengah scroll (mobile) -> progress melompat -> device
+    // tiba-tiba mengecil. Recompute hanya saat resize/rotate, bukan tiap frame.
+    let heroHeightRef = heroSection.offsetHeight - window.innerHeight;
+    const refreshHeroHeight = () => {
+      heroHeightRef = heroSection.offsetHeight - window.innerHeight;
+    };
+    window.addEventListener('resize', refreshHeroHeight, { passive: true });
+    window.addEventListener('orientationchange', refreshHeroHeight, { passive: true });
     const onHeroScroll = () => {
       if (heroScrollQueued) return;
       heroScrollQueued = true;
       requestAnimationFrame(() => {
         heroScrollQueued = false;
       const rect = heroSection.getBoundingClientRect();
-      const heroHeight = heroSection.offsetHeight - window.innerHeight;
+      const heroHeight = heroHeightRef;
 
       if (heroHeight > 0) {
         let progress = -rect.top / heroHeight;

@@ -426,8 +426,10 @@ body.framer-body {
   position: sticky;
   top: 0;
   width: 100vw;
+  /* svh = small viewport height: TIDAK berubah saat address bar collapse/expand
+     di tengah scroll (mobile). dvh bikin container re-layout -> animasi melompat. */
+  height: 100svh;
   height: 100vh;
-  height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
